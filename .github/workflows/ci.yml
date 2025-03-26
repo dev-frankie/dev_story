@@ -12,17 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 저장소 체크아웃
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Node.js 환경 설정 (Next.js 15와 호환되는 Node 버전 선택, 예: 16)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # npm 캐시 활용 (의존성 설치 속도 개선)
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -33,7 +30,7 @@ jobs:
 
       # 의존성 설치
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Next.js 앱 빌드
       - name: Build Next.js project
