@@ -36,6 +36,12 @@ jobs:
       - name: Build Next.js project
         run: npm run build
 
+      # 서버 실행 및 대기
+      - name: Start Next.js server
+        run: |
+          npm run start &  # 서버를 백그라운드에서 실행
+          npx wait-on http://localhost:3000  # 서버가 준비될 때까지 대기
+
       - name: Install Playwright Browsers
         run: npx playwright install
 
