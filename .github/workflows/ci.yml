@@ -28,18 +28,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # 의존성 설치
+
       - name: Install dependencies
         run: npm install
 
-      # Next.js 앱 빌드
+
       - name: Build Next.js project
         run: npm run build
 
-      # Playwright 브라우저 설치 (필요시)
       - name: Install Playwright Browsers
         run: npx playwright install
 
-      # Playwright 테스트 실행
       - name: Run Playwright tests
         run: npx playwright test
